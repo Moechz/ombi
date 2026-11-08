@@ -138,7 +138,7 @@
   "github_repo": "ombi",
   "upstream_version": "4.53.10",
   "release_tag_prefix": "v",
-  "version": "4.53.10-1",
+  "version": "4.53.10-2",
   "help": "https://github.com/Moechz/ombi/issues",
   "docker_socket": false,
   "group_add": [],

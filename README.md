@@ -53,9 +53,10 @@ table lists what is created and how it behaves. Nothing else is written.
 ## Build
 
 ```bash
-scripts/build.sh                  # -> out/ombidocker.tar.gz + .sha256
-scripts/build.sh 4.53.10-2   # packaging iteration bump
-scripts/build.sh 4.53.10-1 aarch64
+scripts/build-dual.sh             # DEFAULT: out/ombidocker_x86_64.tar.gz + out/ombidocker_aarch64.tar.gz
+scripts/build.sh                  # single arch -> out/ombidocker.tar.gz + .sha256
+scripts/build.sh 4.53.10-3        # packaging iteration bump
+scripts/build.sh 4.53.10-2 aarch64
 ```
 
 The build stages the four files, substitutes the version/platform placeholders,
@@ -66,6 +67,20 @@ images, fixed tag, reserved/recommended host ports, non-root user, per-service
 healthcheck/TZ/restart, data path below the application data root, never the
 `/Volume*` wildcard, comment-free sequence blocks, `x-app-meta` position, no
 literal secrets and the SVG size/element limits).
+
+## Architectures
+
+Both store architectures are built and submitted (`x86_64` + `aarch64`) as two
+App records with the same `appid`, different `platform`:
+
+| Package | `config.ini.platform` | Submitted for |
+|---|---|---|
+| `ombidocker_x86_64.tar.gz` | `x86_64` | x86_64 NAS |
+| `ombidocker_aarch64.tar.gz` | `aarch64` | ARM NAS |
+
+The two archives differ only in `config.ini.platform`. The upstream image is a
+multi-arch Docker Hub image (`linux/amd64` + `linux/arm64`), so Docker pulls the
+variant matching the NAS; nothing else in the package changes.
 
 ## Local verification
 
