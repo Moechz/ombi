@@ -1,0 +1,195 @@
+# ===========================================================================
+# Multilingual file for the TOS 7 Docker application "ombidocker".
+# File name MUST be: <appid>.lang.  23-language superset (14 required by TOS).
+# The App Center picks the text matching the user's device language;
+# untranslated nodes fall back to English, which the official guide allows.
+# Fields: name (app title), auth (upstream author), descript (up to 512
+# chars), release_note, important (up to 512 chars).
+# Translations come from tosapp.json "translations"; run
+#   tosdocker lang <app>          to re-render this file
+#   tosdocker translate <app>     to see what still needs translating
+# ===========================================================================
+[en-us]
+name         = "Ombi"
+auth         = "tidusjar"
+version      = "@@VERSION@@"
+descript     = "Ombi is a self-hosted request management system for Plex, Emby and Jellyfin. Give friends and family their own login and let them request movies and TV shows from a clean web interface; approved requests can be handed to Sonarr or Radarr, Ombi tracks what is already available, and it can send notifications and newsletters. This app runs the LinuxServer.io Docker Hub image as a non-root container and keeps every setting, user and request in the application data folder."
+release_note = "1. First release: Ombi 4.53.10 from Docker Hub as a non-root container. The first-run wizard creates the administrator account, every setting and request stays in the application data folder, and the app opens from the TOS desktop icon."
+important    = "Requires DockerEngine (installed automatically if missing). Finish the first-run wizard to create the administrator account; the database, settings and logs stay in DockerAppData/ombidocker/config. Ombi is only the request front end: add your Plex, Emby or Jellyfin server and your Sonarr/Radarr servers under Settings, and make sure the container can reach them. The UI is plain HTTP - use a TLS reverse proxy before exposing it to the internet. Back up config before removing the app with its data."
+
+[zh-cn]
+name         = "Ombi"
+auth         = "tidusjar"
+version      = "@@VERSION@@"
+descript     = "Ombi 是一款自托管的媒体请求管理系统，支持 Plex、Emby 与 Jellyfin。你可以为家人和朋友开设独立账号，让他们在简洁的网页界面提交电影、剧集请求；审批后的请求可转交给 Sonarr 或 Radarr，Ombi 会跟踪哪些内容已经入库，还能发送通知与订阅邮件。本应用以非 root 容器运行 LinuxServer.io 官方镜像，所有设置、用户与请求都保存在应用数据目录中。"
+release_note = "1. 首个版本：基于 Docker Hub 的 Ombi 4.53.10，以非 root 容器运行。首次向导创建管理员账号，所有设置与请求数据保存在应用数据目录，可从 TOS 桌面图标直接打开。"
+important    = "需要 DockerEngine（缺失时应用中心会自动安装）。安装后先完成首次向导，创建管理员账号；数据库、设置与日志都保存在 DockerAppData/ombidocker/config。Ombi 只是请求前端：请在「设置」中填写 Plex/Emby/Jellyfin 服务器与 Sonarr/Radarr 地址，并确保容器能访问它们。界面为纯 HTTP，暴露到公网前请配置带 TLS 的反向代理。卸载并删除数据前请先备份 config 目录。"
+
+[zh-hk]
+name         = "Ombi"
+auth         = "tidusjar"
+version      = "@@VERSION@@"
+descript     = "Ombi 是一款自託管的媒體請求管理系統，支援 Plex、Emby 與 Jellyfin。你可以為家人和朋友開設獨立帳號，讓他們在簡潔的網頁介面提交電影、劇集請求；審批後的請求可轉交 Sonarr 或 Radarr，Ombi 會追蹤哪些內容已經入庫，亦可發送通知與訂閱電郵。本應用以非 root 容器運行 LinuxServer.io 官方映像，所有設定、使用者與請求都保存在應用資料目錄。"
+release_note = "1. 首個版本：基於 Docker Hub 的 Ombi 4.53.10，以非 root 容器運行。首次精靈建立管理員帳號，所有設定與請求資料保存在應用資料目錄，可從 TOS 桌面圖示直接開啟。"
+important    = "需要 DockerEngine（缺少時應用中心會自動安裝）。安裝後先完成首次精靈，建立管理員帳號；資料庫、設定與日誌都保存在 DockerAppData/ombidocker/config。Ombi 只是請求前端：請在「設定」填寫 Plex/Emby/Jellyfin 伺服器與 Sonarr/Radarr 位址，並確保容器能連線。介面為純 HTTP，公開到互聯網前請配置帶 TLS 的反向代理。解除安裝並刪除資料前請先備份 config 目錄。"
+
+[fr-fr]
+name         = "Ombi"
+auth         = "tidusjar"
+version      = "@@VERSION@@"
+descript     = "Ombi is a self-hosted request management system for Plex, Emby and Jellyfin. Give friends and family their own login and let them request movies and TV shows from a clean web interface; approved requests can be handed to Sonarr or Radarr, Ombi tracks what is already available, and it can send notifications and newsletters. This app runs the LinuxServer.io Docker Hub image as a non-root container and keeps every setting, user and request in the application data folder."
+release_note = "1. First release: Ombi 4.53.10 from Docker Hub as a non-root container. The first-run wizard creates the administrator account, every setting and request stays in the application data folder, and the app opens from the TOS desktop icon."
+important    = "Requires DockerEngine (installed automatically if missing). Finish the first-run wizard to create the administrator account; the database, settings and logs stay in DockerAppData/ombidocker/config. Ombi is only the request front end: add your Plex, Emby or Jellyfin server and your Sonarr/Radarr servers under Settings, and make sure the container can reach them. The UI is plain HTTP - use a TLS reverse proxy before exposing it to the internet. Back up config before removing the app with its data."
+
+[de-de]
+name         = "Ombi"
+auth         = "tidusjar"
+version      = "@@VERSION@@"
+descript     = "Ombi is a self-hosted request management system for Plex, Emby and Jellyfin. Give friends and family their own login and let them request movies and TV shows from a clean web interface; approved requests can be handed to Sonarr or Radarr, Ombi tracks what is already available, and it can send notifications and newsletters. This app runs the LinuxServer.io Docker Hub image as a non-root container and keeps every setting, user and request in the application data folder."
+release_note = "1. First release: Ombi 4.53.10 from Docker Hub as a non-root container. The first-run wizard creates the administrator account, every setting and request stays in the application data folder, and the app opens from the TOS desktop icon."
+important    = "Requires DockerEngine (installed automatically if missing). Finish the first-run wizard to create the administrator account; the database, settings and logs stay in DockerAppData/ombidocker/config. Ombi is only the request front end: add your Plex, Emby or Jellyfin server and your Sonarr/Radarr servers under Settings, and make sure the container can reach them. The UI is plain HTTP - use a TLS reverse proxy before exposing it to the internet. Back up config before removing the app with its data."
+
+[it-it]
+name         = "Ombi"
+auth         = "tidusjar"
+version      = "@@VERSION@@"
+descript     = "Ombi is a self-hosted request management system for Plex, Emby and Jellyfin. Give friends and family their own login and let them request movies and TV shows from a clean web interface; approved requests can be handed to Sonarr or Radarr, Ombi tracks what is already available, and it can send notifications and newsletters. This app runs the LinuxServer.io Docker Hub image as a non-root container and keeps every setting, user and request in the application data folder."
+release_note = "1. First release: Ombi 4.53.10 from Docker Hub as a non-root container. The first-run wizard creates the administrator account, every setting and request stays in the application data folder, and the app opens from the TOS desktop icon."
+important    = "Requires DockerEngine (installed automatically if missing). Finish the first-run wizard to create the administrator account; the database, settings and logs stay in DockerAppData/ombidocker/config. Ombi is only the request front end: add your Plex, Emby or Jellyfin server and your Sonarr/Radarr servers under Settings, and make sure the container can reach them. The UI is plain HTTP - use a TLS reverse proxy before exposing it to the internet. Back up config before removing the app with its data."
+
+[es-es]
+name         = "Ombi"
+auth         = "tidusjar"
+version      = "@@VERSION@@"
+descript     = "Ombi is a self-hosted request management system for Plex, Emby and Jellyfin. Give friends and family their own login and let them request movies and TV shows from a clean web interface; approved requests can be handed to Sonarr or Radarr, Ombi tracks what is already available, and it can send notifications and newsletters. This app runs the LinuxServer.io Docker Hub image as a non-root container and keeps every setting, user and request in the application data folder."
+release_note = "1. First release: Ombi 4.53.10 from Docker Hub as a non-root container. The first-run wizard creates the administrator account, every setting and request stays in the application data folder, and the app opens from the TOS desktop icon."
+important    = "Requires DockerEngine (installed automatically if missing). Finish the first-run wizard to create the administrator account; the database, settings and logs stay in DockerAppData/ombidocker/config. Ombi is only the request front end: add your Plex, Emby or Jellyfin server and your Sonarr/Radarr servers under Settings, and make sure the container can reach them. The UI is plain HTTP - use a TLS reverse proxy before exposing it to the internet. Back up config before removing the app with its data."
+
+[hu-hu]
+name         = "Ombi"
+auth         = "tidusjar"
+version      = "@@VERSION@@"
+descript     = "Ombi is a self-hosted request management system for Plex, Emby and Jellyfin. Give friends and family their own login and let them request movies and TV shows from a clean web interface; approved requests can be handed to Sonarr or Radarr, Ombi tracks what is already available, and it can send notifications and newsletters. This app runs the LinuxServer.io Docker Hub image as a non-root container and keeps every setting, user and request in the application data folder."
+release_note = "1. First release: Ombi 4.53.10 from Docker Hub as a non-root container. The first-run wizard creates the administrator account, every setting and request stays in the application data folder, and the app opens from the TOS desktop icon."
+important    = "Requires DockerEngine (installed automatically if missing). Finish the first-run wizard to create the administrator account; the database, settings and logs stay in DockerAppData/ombidocker/config. Ombi is only the request front end: add your Plex, Emby or Jellyfin server and your Sonarr/Radarr servers under Settings, and make sure the container can reach them. The UI is plain HTTP - use a TLS reverse proxy before exposing it to the internet. Back up config before removing the app with its data."
+
+[ja-jp]
+name         = "Ombi"
+auth         = "tidusjar"
+version      = "@@VERSION@@"
+descript     = "Ombi is a self-hosted request management system for Plex, Emby and Jellyfin. Give friends and family their own login and let them request movies and TV shows from a clean web interface; approved requests can be handed to Sonarr or Radarr, Ombi tracks what is already available, and it can send notifications and newsletters. This app runs the LinuxServer.io Docker Hub image as a non-root container and keeps every setting, user and request in the application data folder."
+release_note = "1. First release: Ombi 4.53.10 from Docker Hub as a non-root container. The first-run wizard creates the administrator account, every setting and request stays in the application data folder, and the app opens from the TOS desktop icon."
+important    = "Requires DockerEngine (installed automatically if missing). Finish the first-run wizard to create the administrator account; the database, settings and logs stay in DockerAppData/ombidocker/config. Ombi is only the request front end: add your Plex, Emby or Jellyfin server and your Sonarr/Radarr servers under Settings, and make sure the container can reach them. The UI is plain HTTP - use a TLS reverse proxy before exposing it to the internet. Back up config before removing the app with its data."
+
+[ko-kr]
+name         = "Ombi"
+auth         = "tidusjar"
+version      = "@@VERSION@@"
+descript     = "Ombi is a self-hosted request management system for Plex, Emby and Jellyfin. Give friends and family their own login and let them request movies and TV shows from a clean web interface; approved requests can be handed to Sonarr or Radarr, Ombi tracks what is already available, and it can send notifications and newsletters. This app runs the LinuxServer.io Docker Hub image as a non-root container and keeps every setting, user and request in the application data folder."
+release_note = "1. First release: Ombi 4.53.10 from Docker Hub as a non-root container. The first-run wizard creates the administrator account, every setting and request stays in the application data folder, and the app opens from the TOS desktop icon."
+important    = "Requires DockerEngine (installed automatically if missing). Finish the first-run wizard to create the administrator account; the database, settings and logs stay in DockerAppData/ombidocker/config. Ombi is only the request front end: add your Plex, Emby or Jellyfin server and your Sonarr/Radarr servers under Settings, and make sure the container can reach them. The UI is plain HTTP - use a TLS reverse proxy before exposing it to the internet. Back up config before removing the app with its data."
+
+[pl-pl]
+name         = "Ombi"
+auth         = "tidusjar"
+version      = "@@VERSION@@"
+descript     = "Ombi is a self-hosted request management system for Plex, Emby and Jellyfin. Give friends and family their own login and let them request movies and TV shows from a clean web interface; approved requests can be handed to Sonarr or Radarr, Ombi tracks what is already available, and it can send notifications and newsletters. This app runs the LinuxServer.io Docker Hub image as a non-root container and keeps every setting, user and request in the application data folder."
+release_note = "1. First release: Ombi 4.53.10 from Docker Hub as a non-root container. The first-run wizard creates the administrator account, every setting and request stays in the application data folder, and the app opens from the TOS desktop icon."
+important    = "Requires DockerEngine (installed automatically if missing). Finish the first-run wizard to create the administrator account; the database, settings and logs stay in DockerAppData/ombidocker/config. Ombi is only the request front end: add your Plex, Emby or Jellyfin server and your Sonarr/Radarr servers under Settings, and make sure the container can reach them. The UI is plain HTTP - use a TLS reverse proxy before exposing it to the internet. Back up config before removing the app with its data."
+
+[ru-ru]
+name         = "Ombi"
+auth         = "tidusjar"
+version      = "@@VERSION@@"
+descript     = "Ombi is a self-hosted request management system for Plex, Emby and Jellyfin. Give friends and family their own login and let them request movies and TV shows from a clean web interface; approved requests can be handed to Sonarr or Radarr, Ombi tracks what is already available, and it can send notifications and newsletters. This app runs the LinuxServer.io Docker Hub image as a non-root container and keeps every setting, user and request in the application data folder."
+release_note = "1. First release: Ombi 4.53.10 from Docker Hub as a non-root container. The first-run wizard creates the administrator account, every setting and request stays in the application data folder, and the app opens from the TOS desktop icon."
+important    = "Requires DockerEngine (installed automatically if missing). Finish the first-run wizard to create the administrator account; the database, settings and logs stay in DockerAppData/ombidocker/config. Ombi is only the request front end: add your Plex, Emby or Jellyfin server and your Sonarr/Radarr servers under Settings, and make sure the container can reach them. The UI is plain HTTP - use a TLS reverse proxy before exposing it to the internet. Back up config before removing the app with its data."
+
+[tr-tr]
+name         = "Ombi"
+auth         = "tidusjar"
+version      = "@@VERSION@@"
+descript     = "Ombi is a self-hosted request management system for Plex, Emby and Jellyfin. Give friends and family their own login and let them request movies and TV shows from a clean web interface; approved requests can be handed to Sonarr or Radarr, Ombi tracks what is already available, and it can send notifications and newsletters. This app runs the LinuxServer.io Docker Hub image as a non-root container and keeps every setting, user and request in the application data folder."
+release_note = "1. First release: Ombi 4.53.10 from Docker Hub as a non-root container. The first-run wizard creates the administrator account, every setting and request stays in the application data folder, and the app opens from the TOS desktop icon."
+important    = "Requires DockerEngine (installed automatically if missing). Finish the first-run wizard to create the administrator account; the database, settings and logs stay in DockerAppData/ombidocker/config. Ombi is only the request front end: add your Plex, Emby or Jellyfin server and your Sonarr/Radarr servers under Settings, and make sure the container can reach them. The UI is plain HTTP - use a TLS reverse proxy before exposing it to the internet. Back up config before removing the app with its data."
+
+[pt-pt]
+name         = "Ombi"
+auth         = "tidusjar"
+version      = "@@VERSION@@"
+descript     = "Ombi is a self-hosted request management system for Plex, Emby and Jellyfin. Give friends and family their own login and let them request movies and TV shows from a clean web interface; approved requests can be handed to Sonarr or Radarr, Ombi tracks what is already available, and it can send notifications and newsletters. This app runs the LinuxServer.io Docker Hub image as a non-root container and keeps every setting, user and request in the application data folder."
+release_note = "1. First release: Ombi 4.53.10 from Docker Hub as a non-root container. The first-run wizard creates the administrator account, every setting and request stays in the application data folder, and the app opens from the TOS desktop icon."
+important    = "Requires DockerEngine (installed automatically if missing). Finish the first-run wizard to create the administrator account; the database, settings and logs stay in DockerAppData/ombidocker/config. Ombi is only the request front end: add your Plex, Emby or Jellyfin server and your Sonarr/Radarr servers under Settings, and make sure the container can reach them. The UI is plain HTTP - use a TLS reverse proxy before exposing it to the internet. Back up config before removing the app with its data."
+
+[ar-sa]
+name         = "Ombi"
+auth         = "tidusjar"
+version      = "@@VERSION@@"
+descript     = "Ombi is a self-hosted request management system for Plex, Emby and Jellyfin. Give friends and family their own login and let them request movies and TV shows from a clean web interface; approved requests can be handed to Sonarr or Radarr, Ombi tracks what is already available, and it can send notifications and newsletters. This app runs the LinuxServer.io Docker Hub image as a non-root container and keeps every setting, user and request in the application data folder."
+release_note = "1. First release: Ombi 4.53.10 from Docker Hub as a non-root container. The first-run wizard creates the administrator account, every setting and request stays in the application data folder, and the app opens from the TOS desktop icon."
+important    = "Requires DockerEngine (installed automatically if missing). Finish the first-run wizard to create the administrator account; the database, settings and logs stay in DockerAppData/ombidocker/config. Ombi is only the request front end: add your Plex, Emby or Jellyfin server and your Sonarr/Radarr servers under Settings, and make sure the container can reach them. The UI is plain HTTP - use a TLS reverse proxy before exposing it to the internet. Back up config before removing the app with its data."
+
+[cs-cz]
+name         = "Ombi"
+auth         = "tidusjar"
+version      = "@@VERSION@@"
+descript     = "Ombi is a self-hosted request management system for Plex, Emby and Jellyfin. Give friends and family their own login and let them request movies and TV shows from a clean web interface; approved requests can be handed to Sonarr or Radarr, Ombi tracks what is already available, and it can send notifications and newsletters. This app runs the LinuxServer.io Docker Hub image as a non-root container and keeps every setting, user and request in the application data folder."
+release_note = "1. First release: Ombi 4.53.10 from Docker Hub as a non-root container. The first-run wizard creates the administrator account, every setting and request stays in the application data folder, and the app opens from the TOS desktop icon."
+important    = "Requires DockerEngine (installed automatically if missing). Finish the first-run wizard to create the administrator account; the database, settings and logs stay in DockerAppData/ombidocker/config. Ombi is only the request front end: add your Plex, Emby or Jellyfin server and your Sonarr/Radarr servers under Settings, and make sure the container can reach them. The UI is plain HTTP - use a TLS reverse proxy before exposing it to the internet. Back up config before removing the app with its data."
+
+[he-il]
+name         = "Ombi"
+auth         = "tidusjar"
+version      = "@@VERSION@@"
+descript     = "Ombi is a self-hosted request management system for Plex, Emby and Jellyfin. Give friends and family their own login and let them request movies and TV shows from a clean web interface; approved requests can be handed to Sonarr or Radarr, Ombi tracks what is already available, and it can send notifications and newsletters. This app runs the LinuxServer.io Docker Hub image as a non-root container and keeps every setting, user and request in the application data folder."
+release_note = "1. First release: Ombi 4.53.10 from Docker Hub as a non-root container. The first-run wizard creates the administrator account, every setting and request stays in the application data folder, and the app opens from the TOS desktop icon."
+important    = "Requires DockerEngine (installed automatically if missing). Finish the first-run wizard to create the administrator account; the database, settings and logs stay in DockerAppData/ombidocker/config. Ombi is only the request front end: add your Plex, Emby or Jellyfin server and your Sonarr/Radarr servers under Settings, and make sure the container can reach them. The UI is plain HTTP - use a TLS reverse proxy before exposing it to the internet. Back up config before removing the app with its data."
+
+[id-id]
+name         = "Ombi"
+auth         = "tidusjar"
+version      = "@@VERSION@@"
+descript     = "Ombi is a self-hosted request management system for Plex, Emby and Jellyfin. Give friends and family their own login and let them request movies and TV shows from a clean web interface; approved requests can be handed to Sonarr or Radarr, Ombi tracks what is already available, and it can send notifications and newsletters. This app runs the LinuxServer.io Docker Hub image as a non-root container and keeps every setting, user and request in the application data folder."
+release_note = "1. First release: Ombi 4.53.10 from Docker Hub as a non-root container. The first-run wizard creates the administrator account, every setting and request stays in the application data folder, and the app opens from the TOS desktop icon."
+important    = "Requires DockerEngine (installed automatically if missing). Finish the first-run wizard to create the administrator account; the database, settings and logs stay in DockerAppData/ombidocker/config. Ombi is only the request front end: add your Plex, Emby or Jellyfin server and your Sonarr/Radarr servers under Settings, and make sure the container can reach them. The UI is plain HTTP - use a TLS reverse proxy before exposing it to the internet. Back up config before removing the app with its data."
+
+[nb-no]
+name         = "Ombi"
+auth         = "tidusjar"
+version      = "@@VERSION@@"
+descript     = "Ombi is a self-hosted request management system for Plex, Emby and Jellyfin. Give friends and family their own login and let them request movies and TV shows from a clean web interface; approved requests can be handed to Sonarr or Radarr, Ombi tracks what is already available, and it can send notifications and newsletters. This app runs the LinuxServer.io Docker Hub image as a non-root container and keeps every setting, user and request in the application data folder."
+release_note = "1. First release: Ombi 4.53.10 from Docker Hub as a non-root container. The first-run wizard creates the administrator account, every setting and request stays in the application data folder, and the app opens from the TOS desktop icon."
+important    = "Requires DockerEngine (installed automatically if missing). Finish the first-run wizard to create the administrator account; the database, settings and logs stay in DockerAppData/ombidocker/config. Ombi is only the request front end: add your Plex, Emby or Jellyfin server and your Sonarr/Radarr servers under Settings, and make sure the container can reach them. The UI is plain HTTP - use a TLS reverse proxy before exposing it to the internet. Back up config before removing the app with its data."
+
+[nl-nl]
+name         = "Ombi"
+auth         = "tidusjar"
+version      = "@@VERSION@@"
+descript     = "Ombi is a self-hosted request management system for Plex, Emby and Jellyfin. Give friends and family their own login and let them request movies and TV shows from a clean web interface; approved requests can be handed to Sonarr or Radarr, Ombi tracks what is already available, and it can send notifications and newsletters. This app runs the LinuxServer.io Docker Hub image as a non-root container and keeps every setting, user and request in the application data folder."
+release_note = "1. First release: Ombi 4.53.10 from Docker Hub as a non-root container. The first-run wizard creates the administrator account, every setting and request stays in the application data folder, and the app opens from the TOS desktop icon."
+important    = "Requires DockerEngine (installed automatically if missing). Finish the first-run wizard to create the administrator account; the database, settings and logs stay in DockerAppData/ombidocker/config. Ombi is only the request front end: add your Plex, Emby or Jellyfin server and your Sonarr/Radarr servers under Settings, and make sure the container can reach them. The UI is plain HTTP - use a TLS reverse proxy before exposing it to the internet. Back up config before removing the app with its data."
+
+[sv-se]
+name         = "Ombi"
+auth         = "tidusjar"
+version      = "@@VERSION@@"
+descript     = "Ombi is a self-hosted request management system for Plex, Emby and Jellyfin. Give friends and family their own login and let them request movies and TV shows from a clean web interface; approved requests can be handed to Sonarr or Radarr, Ombi tracks what is already available, and it can send notifications and newsletters. This app runs the LinuxServer.io Docker Hub image as a non-root container and keeps every setting, user and request in the application data folder."
+release_note = "1. First release: Ombi 4.53.10 from Docker Hub as a non-root container. The first-run wizard creates the administrator account, every setting and request stays in the application data folder, and the app opens from the TOS desktop icon."
+important    = "Requires DockerEngine (installed automatically if missing). Finish the first-run wizard to create the administrator account; the database, settings and logs stay in DockerAppData/ombidocker/config. Ombi is only the request front end: add your Plex, Emby or Jellyfin server and your Sonarr/Radarr servers under Settings, and make sure the container can reach them. The UI is plain HTTP - use a TLS reverse proxy before exposing it to the internet. Back up config before removing the app with its data."
+
+[th-th]
+name         = "Ombi"
+auth         = "tidusjar"
+version      = "@@VERSION@@"
+descript     = "Ombi is a self-hosted request management system for Plex, Emby and Jellyfin. Give friends and family their own login and let them request movies and TV shows from a clean web interface; approved requests can be handed to Sonarr or Radarr, Ombi tracks what is already available, and it can send notifications and newsletters. This app runs the LinuxServer.io Docker Hub image as a non-root container and keeps every setting, user and request in the application data folder."
+release_note = "1. First release: Ombi 4.53.10 from Docker Hub as a non-root container. The first-run wizard creates the administrator account, every setting and request stays in the application data folder, and the app opens from the TOS desktop icon."
+important    = "Requires DockerEngine (installed automatically if missing). Finish the first-run wizard to create the administrator account; the database, settings and logs stay in DockerAppData/ombidocker/config. Ombi is only the request front end: add your Plex, Emby or Jellyfin server and your Sonarr/Radarr servers under Settings, and make sure the container can reach them. The UI is plain HTTP - use a TLS reverse proxy before exposing it to the internet. Back up config before removing the app with its data."
+
+[vi-vn]
+name         = "Ombi"
+auth         = "tidusjar"
+version      = "@@VERSION@@"
+descript     = "Ombi is a self-hosted request management system for Plex, Emby and Jellyfin. Give friends and family their own login and let them request movies and TV shows from a clean web interface; approved requests can be handed to Sonarr or Radarr, Ombi tracks what is already available, and it can send notifications and newsletters. This app runs the LinuxServer.io Docker Hub image as a non-root container and keeps every setting, user and request in the application data folder."
+release_note = "1. First release: Ombi 4.53.10 from Docker Hub as a non-root container. The first-run wizard creates the administrator account, every setting and request stays in the application data folder, and the app opens from the TOS desktop icon."
+important    = "Requires DockerEngine (installed automatically if missing). Finish the first-run wizard to create the administrator account; the database, settings and logs stay in DockerAppData/ombidocker/config. Ombi is only the request front end: add your Plex, Emby or Jellyfin server and your Sonarr/Radarr servers under Settings, and make sure the container can reach them. The UI is plain HTTP - use a TLS reverse proxy before exposing it to the internet. Back up config before removing the app with its data."
+

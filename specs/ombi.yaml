@@ -1,0 +1,160 @@
+app_id: ombidocker
+title: Ombi
+image: linuxserver/ombi:4.53.10
+repo_name: ombi
+mode: wrapper
+entrypoint_file: src/entrypoint.sh
+container_port: 3579
+category:
+- Audio_Video_Entertainment
+icon_file: assets/icon.svg
+volumes:
+- host: /Volume1/DockerAppData/ombidocker/config
+  container: /config
+env:
+  TZ: Asia/Shanghai
+healthcheck:
+- CMD-SHELL
+- curl -s -o /dev/null http://127.0.0.1:3579/ || exit 1
+healthcheck_start_period: 90s
+healthcheck_interval: 30s
+auth: tidusjar
+upstream_url: https://github.com/Ombi-app/Ombi
+official: https://github.com/Ombi-app/Ombi
+upstream_license: GPL-3.0
+license: GPL-3.0
+descript: Ombi is a self-hosted request management system for Plex, Emby and Jellyfin. Give friends and
+  family their own login and let them request movies and TV shows from a clean web interface; approved
+  requests can be handed to Sonarr or Radarr, Ombi tracks what is already available, and it can send notifications
+  and newsletters. This app runs the LinuxServer.io Docker Hub image as a non-root container and keeps
+  every setting, user and request in the application data folder.
+important: 'Requires DockerEngine (installed automatically if missing). Finish the first-run wizard to
+  create the administrator account; the database, settings and logs stay in DockerAppData/ombidocker/config.
+  Ombi is only the request front end: add your Plex, Emby or Jellyfin server and your Sonarr/Radarr servers
+  under Settings, and make sure the container can reach them. The UI is plain HTTP - use a TLS reverse
+  proxy before exposing it to the internet. Back up config before removing the app with its data.'
+release_note: '1. First release: Ombi 4.53.10 from Docker Hub as a non-root container. The first-run wizard
+  creates the administrator account, every setting and request stays in the application data folder, and
+  the app opens from the TOS desktop icon.'
+translations:
+  zh-cn:
+    descript: Ombi 是一款自托管的媒体请求管理系统，支持 Plex、Emby 与 Jellyfin。你可以为家人和朋友开设独立账号，让他们在简洁的网页界面提交电影、剧集请求；审批后的请求可转交给
+      Sonarr 或 Radarr，Ombi 会跟踪哪些内容已经入库，还能发送通知与订阅邮件。本应用以非 root 容器运行 LinuxServer.io 官方镜像，所有设置、用户与请求都保存在应用数据目录中。
+    important: 需要 DockerEngine（缺失时应用中心会自动安装）。安装后先完成首次向导，创建管理员账号；数据库、设置与日志都保存在 DockerAppData/ombidocker/config。Ombi
+      只是请求前端：请在「设置」中填写 Plex/Emby/Jellyfin 服务器与 Sonarr/Radarr 地址，并确保容器能访问它们。界面为纯 HTTP，暴露到公网前请配置带 TLS 的反向代理。卸载并删除数据前请先备份
+      config 目录。
+    release_note: 1. 首个版本：基于 Docker Hub 的 Ombi 4.53.10，以非 root 容器运行。首次向导创建管理员账号，所有设置与请求数据保存在应用数据目录，可从
+      TOS 桌面图标直接打开。
+  zh-hk:
+    descript: Ombi 是一款自託管的媒體請求管理系統，支援 Plex、Emby 與 Jellyfin。你可以為家人和朋友開設獨立帳號，讓他們在簡潔的網頁介面提交電影、劇集請求；審批後的請求可轉交
+      Sonarr 或 Radarr，Ombi 會追蹤哪些內容已經入庫，亦可發送通知與訂閱電郵。本應用以非 root 容器運行 LinuxServer.io 官方映像，所有設定、使用者與請求都保存在應用資料目錄。
+    important: 需要 DockerEngine（缺少時應用中心會自動安裝）。安裝後先完成首次精靈，建立管理員帳號；資料庫、設定與日誌都保存在 DockerAppData/ombidocker/config。Ombi
+      只是請求前端：請在「設定」填寫 Plex/Emby/Jellyfin 伺服器與 Sonarr/Radarr 位址，並確保容器能連線。介面為純 HTTP，公開到互聯網前請配置帶 TLS 的反向代理。解除安裝並刪除資料前請先備份
+      config 目錄。
+    release_note: 1. 首個版本：基於 Docker Hub 的 Ombi 4.53.10，以非 root 容器運行。首次精靈建立管理員帳號，所有設定與請求資料保存在應用資料目錄，可從
+      TOS 桌面圖示直接開啟。
+runtime_files:
+- path: config/Ombi.db
+  purpose: SQLite database with users, requests and history
+  created: first start (migrations)
+  growth: grows with the number of requests
+  lifecycle: persistent; include it in every backup
+- path: config/OmbiSettings.db
+  purpose: SQLite database with application settings
+  created: first start
+  growth: small, changes only when settings change
+  lifecycle: persistent; include it in every backup
+- path: config/.aspnet
+  purpose: ASP.NET Core data-protection keys (keep them to stay logged in)
+  created: first start
+  growth: constant
+  lifecycle: persistent
+- path: config/Logs
+  purpose: Ombi application logs
+  created: first start
+  growth: rotated by Ombi itself
+  lifecycle: persistent, safe to delete while stopped
+data_notes: 'Everything Ombi writes lives in `/config`, mounted from `/Volume1/DockerAppData/ombidocker/config`:
+  `Ombi.db` (users, requests), `OmbiSettings.db` (settings), `.aspnet/` (login keys) and `Logs/`. The
+  container filesystem itself is disposable, and the image never needs to be modified.'
+design_notes:
+- '**The LinuxServer.io s6 init cannot run unprivileged.** The upstream image starts s6-overlay as root
+  and drops to its `abc` user; inside a container that already runs as uid 1000 that init aborts (`s6-applyuidgid:
+  unable to set supplementary group list`). `src/entrypoint.sh` therefore starts the Ombi binary directly
+  with the same arguments as the upstream s6 service (`--storage /config --host http://*:3579`) and keeps
+  `HOME`, `TMPDIR` on writable paths.'
+- '**One volume, one port, no extra privileges.** Only `/config` is persistent and only container port
+  3579 is published; no Docker socket, no camera or USB passthrough, no `privileged`, no host networking.'
+- '**Base URL / reverse-proxy sub-path is not supported.** Ombi writes its base URL into `wwwroot/index.html`,
+  which is root-owned inside the image and stays read-only for a non-root container; serve it from a dedicated
+  host name or sub-domain instead of a path prefix.'
+limitations:
+- '- Ombi is a request front end only: a Plex, Emby or Jellyfin server and (for automatic fulfilment)
+  Sonarr/Radarr must already exist on your network.'
+- '- The web interface is served over plain HTTP on the published port; use a TLS reverse proxy if you
+  expose it outside your LAN.'
+- '- Sub-path hosting (Ombi `Base URL`) is not supported by this package because the image stores it in
+  a file the non-root container cannot write; use a dedicated host name.'
+- '- Email notifications and newsletters require an SMTP account configured under Settings; no mail server
+  is bundled.'
+- '- The data folder is not visible in TOS File Manager; back it up over SMB/SSH or add it to a TOS backup
+  task by path.'
+wrapper_note: 'the upstream LinuxServer.io image starts s6-overlay as root and then drops
+
+  to its internal user; s6 cannot run inside a container that already runs as
+
+  uid 1000, so the entrypoint below starts the Ombi binary directly, with the
+
+  same storage/host arguments as the upstream s6 service.'
+wrapper_note_readme: '- **Entrypoint wrapper**: the LinuxServer.io image starts s6-overlay as root, which
+  cannot run inside a non-root container, so the compose file replaces the entrypoint with `src/entrypoint.sh`.
+  It starts the Ombi binary directly with the upstream service''s arguments (`--storage /config --host
+  http://*:3579`) and only keeps using writable paths for `HOME` and `TMPDIR`.'
+user_mode_text: 上游镜像以 root 启动 s6-overlay 再降权到 abc；容器已是非 root 时 s6 无法启动 → 内联 entrypoint 直接启动 Ombi 二进制
+user_mode_cons: "- 官方 LinuxServer.io 镜像默认 root + s6，TOS 禁止 root，因此覆盖 entrypoint：\n  按上游 s6 服务的同样参数直接启动\
+  \ `Ombi --storage /config --host http://*:3579`，\n  并把 `HOME`/`TMPDIR` 指到可写路径；不修改镜像内容。\n"
+probe:
+  user_in_image: (root)
+  entrypoint:
+  - /init
+  cmd: null
+  exposed_ports:
+  - 3579
+  declared_volumes: []
+  image_healthcheck: []
+  digest: linuxserver/ombi@sha256:492a6f0b5d710a23fc3aff0c1c0027fbdb1419dcbc66edf7c2c2fc3680af08c1
+  architecture: x86_64
+  platforms:
+  - aarch64
+  - x86_64
+  http_client_in_image: curl
+  trial_run:
+    ok: false
+    http_code: ''
+    state: running (s6 crash loop)
+    paths:
+    - /config
+    host_port: 18000
+    log_tail: 's6-applyuidgid: fatal: unable to set supplementary group list: Operation not permitted'
+    files_in_mounts: ''
+  docker_hub: {}
+  github:
+    owner: linuxserver
+    repo: docker-ombi
+    description: LinuxServer.io Ombi container
+    license: GPL-3.0
+    homepage: https://ombi.io
+  note: probe pulled the image through a registry mirror because this NAS cannot reach registry-1.docker.io
+    directly; the tag/commit is the same Docker Hub content (LinuxServer.io build v4.53.10-ls276).
+platform: x86_64
+user: 1000:1000
+publisher: Moechz
+compose_project: ombidocker
+github_repo: ombi
+upstream_version: 4.53.10
+release_tag_prefix: v
+version: 4.53.10-1
+help: https://github.com/Moechz/ombi/issues
+docker_socket: false
+group_add: []
+host_port: 8005
