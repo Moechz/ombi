@@ -19,3 +19,6 @@ HANDOFF.md
 
 # --- scratch assets used to derive the package icon ---
 /assets/
+
+# --- local packaging helpers (never published) ---
+/.gitconfig-local
